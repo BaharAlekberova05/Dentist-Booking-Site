@@ -3,67 +3,75 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="flex-1 py-6 px-8 flex flex-col space-y-8 bg-(--custom-bg)">
+    <div className="flex-1 p-8 flex flex-col space-y-6 md:space-y-8 bg-gradient-to-t from-[#efad6b] to-[#f3d3b2]">
       <NavLink to="/">
         {({ isActive }) => (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 md:space-x-6">
             <div
               className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-green-400" : "bg-gray-400"
+                isActive ? "bg-(--custom-color)" : "bg-gray-400"
               }`}
             >
               1
             </div>
 
-            <span className="text-white text-xl">Staff</span>
+            <span className="text-(--custom-black) font-medium text-lg md:text-xl">
+              Staff
+            </span>
           </div>
         )}
       </NavLink>
 
       <NavLink to="/service">
         {({ isActive }) => (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 md:space-x-6">
             <div
               className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-green-400" : "bg-gray-400"
+                isActive ? "bg-(--custom-color)" : "bg-gray-400"
               }`}
             >
               2
             </div>
 
-            <span className="text-white text-xl">Service</span>
+            <span className="text-(--custom-black) font-medium text-lg md:text-xl">
+              Service
+            </span>
           </div>
         )}
       </NavLink>
 
       <NavLink to="/date">
         {({ isActive }) => (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 md:space-x-6">
             <div
               className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-green-400" : "bg-gray-400"
+                isActive ? "bg-(--custom-color)" : "bg-gray-400"
               }`}
             >
               3
             </div>
 
-            <span className="text-white text-xl">Date & Time</span>
+            <span className="text-(--custom-black) font-medium text-lg md:text-xl">
+              Date & Time
+            </span>
           </div>
         )}
       </NavLink>
 
       <NavLink to="/confirmation">
         {({ isActive }) => (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 md:space-x-6">
             <div
               className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-green-400" : "bg-gray-400"
+                isActive ? "bg-(--custom-color)" : "bg-gray-400"
               }`}
             >
               4
             </div>
 
-            <span className="text-white text-xl">Confirmation</span>
+            <span className="text-(--custom-black) font-medium text-lg md:text-xl">
+              Confirmation
+            </span>
           </div>
         )}
       </NavLink>
