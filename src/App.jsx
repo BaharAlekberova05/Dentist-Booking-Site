@@ -1,10 +1,17 @@
 import React from "react";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ContextProvider } from "./contexts/MyContext";
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-red-500">Dentist Booking Site</h1>
-    </div>
+    <Router>
+      <ContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </ContextProvider>
+    </Router>
   );
 };
 
