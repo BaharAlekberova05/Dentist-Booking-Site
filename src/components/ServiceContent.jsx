@@ -5,7 +5,8 @@ import { MyContext } from "../contexts/MyContext";
 const ServiceContent = () => {
   const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState(null);
-  const { userData, setUserData, services, setIsServiceOk } = useContext(MyContext);
+  const { userData, setUserData, services, setIsServiceOk } =
+    useContext(MyContext);
   console.log(userData);
 
   const handleServiceSelection = (index, service_name, service_price) => {

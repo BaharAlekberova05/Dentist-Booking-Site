@@ -21,3 +21,11 @@
     /* background-color: #f8f8fd; */
   }
 }
+
+.react-datepicker-wrapper {
+  display: block !important;
+
+  & input {
+    display: block !important;
+  }
+}

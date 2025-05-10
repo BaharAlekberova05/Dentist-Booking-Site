@@ -51,6 +51,8 @@ export const ContextProvider = ({ children }) => {
     },
   ];
 
+  const times = ["9:00", "10:00", "14:00"];
+
   const [isStaffOk, setIsStaffOk] = useState(false);
   const [isServiceOk, setIsServiceOk] = useState(false);
   const [isDateOk, setIsDateOk] = useState(false);
@@ -71,6 +73,7 @@ export const ContextProvider = ({ children }) => {
         setIsDateOk,
         isConfirmationOk,
         setIsConfirmationOk,
+        times,
       }}
     >
       {children}
