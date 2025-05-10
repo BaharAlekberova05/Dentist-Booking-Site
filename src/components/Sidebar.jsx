@@ -2,9 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const stopNavigate = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="flex-1 p-8 flex flex-col space-y-6 md:space-y-8 bg-gradient-to-t from-[#efad6b] to-[#f3d3b2]">
-      <NavLink to="/">
+      <NavLink to="/" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
             <div
@@ -22,7 +26,7 @@ const Sidebar = () => {
         )}
       </NavLink>
 
-      <NavLink to="/service">
+      <NavLink to="/service" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
             <div
@@ -40,7 +44,7 @@ const Sidebar = () => {
         )}
       </NavLink>
 
-      <NavLink to="/date">
+      <NavLink to="/date" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
             <div
@@ -58,7 +62,7 @@ const Sidebar = () => {
         )}
       </NavLink>
 
-      <NavLink to="/confirmation">
+      <NavLink to="/confirmation" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
             <div

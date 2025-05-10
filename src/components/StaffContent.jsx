@@ -1,7 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../contexts/MyContext";
 
 const StaffContent = () => {
+  const navigate = useNavigate();
+  const [selectedStaff, setSelectedStaff] = useState(null);
+  const { userData, setUserData } = useContext(MyContext);
+
+  const handleStaffSelection = (index, staff_name) => {
+    setSelectedStaff(index);
+    setUserData((prevData) => ({ ...prevData, service_name: staff_name }));
+  };
+
+  const checkReguirements = () => {
+    if (selectedStaff !== null) {
+      navigate("/service");
+    } else {
+      alert("Please select a staff!");
+    }
+  };
+
   const staffs = [
     {
       img: "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg",
@@ -19,6 +37,8 @@ const StaffContent = () => {
       email: "robertbrown@gmail.com",
     },
   ];
+  console.log(userData);
+
   return (
     <div className="flex-3 flex flex-col justify-between py-6 px-8 bg-(--main-bg)">
       <div>
@@ -27,8 +47,11 @@ const StaffContent = () => {
         <div className="flex flex-col space-y-3">
           {staffs.map((staff, i) => (
             <div
+              onClick={() => handleStaffSelection(i, staff.name)}
               key={i}
-              className="flex items-center space-x-3 p-4 bg-white shadow-lg focus:border-(--custom-color)"
+              className={`flex items-center space-x-3 p-4 bg-white shadow-lg ${
+                selectedStaff === i && "border-2 border-(--custom-color)"
+              }`}
             >
               <div className="size-14 md:size-18">
                 <img
@@ -50,11 +73,12 @@ const StaffContent = () => {
       </div>
 
       <div className="flex items-center justify-end">
-        <Link to="/service">
-          <button className="bg-(--custom-color) text-white px-4 py-2 uppercase font-semibold cursor-pointer mt-5">
-            Next
-          </button>
-        </Link>
+        <button
+          onClick={checkReguirements}
+          className="bg-(--custom-color) text-white px-4 py-2 uppercase font-semibold cursor-pointer mt-5"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
