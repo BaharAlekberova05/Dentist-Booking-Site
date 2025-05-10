@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { MyContext } from "../contexts/MyContext";
+import { FaCheck } from "react-icons/fa";
 
 const Sidebar = () => {
+  const { isStaffOk, isServiceOk, isDateOk, isConfirmationOk } =
+    useContext(MyContext);
+
   const stopNavigate = (e) => {
     e.preventDefault();
   };
@@ -11,13 +16,21 @@ const Sidebar = () => {
       <NavLink to="/" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
-            <div
-              className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-(--custom-color)" : "bg-gray-400"
-              }`}
-            >
-              1
-            </div>
+            {isStaffOk ? (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold bg-green-400`}
+              >
+                <FaCheck />
+              </div>
+            ) : (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
+                  isActive ? "bg-(--custom-color)" : "bg-gray-400"
+                }`}
+              >
+                1
+              </div>
+            )}
 
             <span className="text-(--custom-black) font-medium text-lg md:text-xl">
               Staff
@@ -29,13 +42,21 @@ const Sidebar = () => {
       <NavLink to="/service" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
-            <div
-              className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-(--custom-color)" : "bg-gray-400"
-              }`}
-            >
-              2
-            </div>
+            {isServiceOk ? (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold bg-green-400`}
+              >
+                <FaCheck />
+              </div>
+            ) : (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
+                  isActive ? "bg-(--custom-color)" : "bg-gray-400"
+                }`}
+              >
+                2
+              </div>
+            )}
 
             <span className="text-(--custom-black) font-medium text-lg md:text-xl">
               Service
@@ -47,13 +68,21 @@ const Sidebar = () => {
       <NavLink to="/date" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
-            <div
-              className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-(--custom-color)" : "bg-gray-400"
-              }`}
-            >
-              3
-            </div>
+            {isDateOk ? (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold bg-green-400`}
+              >
+                <FaCheck />
+              </div>
+            ) : (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
+                  isActive ? "bg-(--custom-color)" : "bg-gray-400"
+                }`}
+              >
+                3
+              </div>
+            )}
 
             <span className="text-(--custom-black) font-medium text-lg md:text-xl">
               Date & Time
@@ -65,13 +94,21 @@ const Sidebar = () => {
       <NavLink to="/confirmation" onClick={stopNavigate}>
         {({ isActive }) => (
           <div className="flex items-center space-x-4 md:space-x-6">
-            <div
-              className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
-                isActive ? "bg-(--custom-color)" : "bg-gray-400"
-              }`}
-            >
-              4
-            </div>
+            {isConfirmationOk ? (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold bg-green-400`}
+              >
+                <FaCheck />
+              </div>
+            ) : (
+              <div
+                className={`rounded-full flex items-center justify-center size-8 text-white font-bold ${
+                  isActive ? "bg-(--custom-color)" : "bg-gray-400"
+                }`}
+              >
+                4
+              </div>
+            )}
 
             <span className="text-(--custom-black) font-medium text-lg md:text-xl">
               Confirmation
