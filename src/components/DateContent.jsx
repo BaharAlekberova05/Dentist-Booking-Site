@@ -6,9 +6,7 @@ const DateContent = () => {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const { times, userData, setUserData, setIsDateOk } = useContext(MyContext);
-
-  console.log(userData);
+  const { times, setUserData, setIsDateOk } = useContext(MyContext);
 
   useEffect(() => {
     setUserData((prevData) => ({
@@ -52,7 +50,9 @@ const DateContent = () => {
               {times.map((time, i) => (
                 <div
                   key={i}
-                  className="shadow-2xl text-xl px-5 py-2 bg-gray-300 cursor-pointer hover:bg-(--custom-color) hover:text-white transition-all duration-300"
+                  className={`shadow-2xl text-xl px-5 py-2 cursor-pointer hover:bg-(--custom-color) hover:text-white transition-all duration-300 ${
+                    selectedTime === time ? "bg-(--custom-color) text-white" : "bg-gray-300"
+                  }`}
                   onClick={() => setSelectedTime(time)}
                 >
                   {time}

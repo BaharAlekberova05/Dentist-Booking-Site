@@ -10,6 +10,10 @@ export const ContextProvider = ({ children }) => {
     service_price: 0,
     service_date: "",
     service_time: "",
+    user_firstName: "",
+    user_lastName: "",
+    user_email: "",
+    user_phone: "",
   });
 
   const staffs = [

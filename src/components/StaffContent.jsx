@@ -5,9 +5,7 @@ import { MyContext } from "../contexts/MyContext";
 const StaffContent = () => {
   const navigate = useNavigate();
   const [selectedStaff, setSelectedStaff] = useState(null);
-  const { userData, setUserData, staffs, setIsStaffOk } = useContext(MyContext);
-  console.log(userData);
-
+  const { setUserData, staffs, setIsStaffOk } = useContext(MyContext);
   const handleStaffSelection = (index, staff_name) => {
     setSelectedStaff(index);
     setUserData((prevData) => ({ ...prevData, staff_name: staff_name }));
