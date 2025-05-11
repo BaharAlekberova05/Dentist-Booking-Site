@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../contexts/MyContext";
+import Swal from "sweetalert2";
 
 const ServiceContent = () => {
   const navigate = useNavigate();
@@ -21,7 +22,12 @@ const ServiceContent = () => {
       navigate("/date");
       setIsServiceOk(true);
     } else {
-      alert("Please select a service!");
+      Swal.fire({
+        title: "Error!",
+        text: "Please, select a service!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../contexts/MyContext";
+import Swal from "sweetalert2";
 
 const DateContent = () => {
   const navigate = useNavigate();
@@ -21,7 +22,12 @@ const DateContent = () => {
       navigate("/confirmation");
       setIsDateOk(true);
     } else {
-      alert("Please select a date/time!");
+      Swal.fire({
+        title: "Error!",
+        text: "Please, select a date/time!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
 
@@ -51,7 +57,9 @@ const DateContent = () => {
                 <div
                   key={i}
                   className={`shadow-2xl text-xl px-5 py-2 cursor-pointer hover:bg-(--custom-color) hover:text-white transition-all duration-300 ${
-                    selectedTime === time ? "bg-(--custom-color) text-white" : "bg-gray-300"
+                    selectedTime === time
+                      ? "bg-(--custom-color) text-white"
+                      : "bg-gray-300"
                   }`}
                   onClick={() => setSelectedTime(time)}
                 >

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../contexts/MyContext";
+import Swal from "sweetalert2";
 
 const StaffContent = () => {
   const navigate = useNavigate();
@@ -16,7 +17,12 @@ const StaffContent = () => {
       navigate("/service");
       setIsStaffOk(true);
     } else {
-      alert("Please select a staff!");
+      Swal.fire({
+        title: "Error!",
+        text: "Please, select a staff!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
 

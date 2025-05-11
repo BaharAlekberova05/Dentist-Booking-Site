@@ -1,9 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../contexts/MyContext";
+import Swal from "sweetalert2";
 
 const ConfirmationContent = () => {
-  const { userData, setIsConfirmationOk } = useContext(MyContext);
+  const navigate = useNavigate();
+  const {
+    userData,
+    setIsStaffOk,
+    setIsServiceOk,
+    setIsDateOk,
+    setIsConfirmationOk,
+  } = useContext(MyContext);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -78,7 +87,18 @@ const ConfirmationContent = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      alert("Form submitted successfully!");
+      Swal.fire({
+        title: "Success!",
+        text: "Your booking is complete!",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+
+      userData.user_firstName = formData.firstName;
+      userData.user_lastName = formData.lastName;
+      userData.user_email = formData.email;
+      userData.user_phone = formData.phone;
+
       setFormData({
         firstName: "",
         lastName: "",
@@ -87,6 +107,13 @@ const ConfirmationContent = () => {
       });
 
       setIsConfirmationOk(true);
+      console.log(userData);
+      navigate("/");
+
+      setIsStaffOk(false);
+      setIsServiceOk(false);
+      setIsDateOk(false);
+      setIsConfirmationOk(false);
     }
   };
 
