@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 
 const Date = () => {
   return (
-    <div className="flex flex-col md:flex-row h-full md:h-screen">
+    <div className="flex flex-col md:flex-row h-dvh">
       <Sidebar />
       <DateContent />
     </div>

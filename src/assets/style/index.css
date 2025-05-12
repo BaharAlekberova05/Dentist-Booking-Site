@@ -18,7 +18,12 @@
 @layer base {
   body {
     font-family: "Poppins", sans-serif;
-    /* background-color: #f8f8fd; */
+  }
+}
+
+@layer utilities {
+  .h-dvh {
+    height: 100dvh;
   }
 }
 
