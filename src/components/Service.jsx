@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 
 const Service = () => {
   return (
-    <div className="flex flex-col md:flex-row h-full h-dvh">
+    <div className="flex flex-col md:flex-row h-dvh">
       <Sidebar />
       <ServiceContent />
     </div>
