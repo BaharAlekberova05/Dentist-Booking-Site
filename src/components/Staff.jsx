@@ -4,7 +4,7 @@ import StaffContent from "./StaffContent";
 
 const Staff = () => {
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-dvh">
       <Sidebar />
       <StaffContent />
     </div>
